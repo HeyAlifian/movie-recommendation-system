@@ -20,9 +20,6 @@ tfidf_matrix        = tfidf.fit_transform(movies['genres'])
 cosineSim           = cosine_similarity(tfidf_matrix, tfidf_matrix)
 indices             = pd.Series(movies.index, index=movies["title"]).drop_duplicates()
 
-def find_similar_movie(user_input):
-    print(moviesTitle[randrange(0, len(moviesTitle))])
-
 def recommend_me(title, cosineSim=cosineSim):
     index           = indices[title]
     simScores       = list(enumerate(cosineSim[index]))
@@ -38,7 +35,7 @@ def recommend_me(title, cosineSim=cosineSim):
 # print(recommend_me('Justice League: The New Frontier (2008)'))
 
 while True:
-    user_input = input("Enter a movie: ").strip()
+    user_input          = input("Enter a movie: ").strip()
 
     if user_input in moviesTitle:
         print(Fore.GREEN+f"Here are the top 10 movies similar to {user_input}:\n", recommend_me(user_input), '\n')
