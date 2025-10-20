@@ -24,6 +24,6 @@ The system analyzes relationships between movies and provides recommendations th
 <br>
 
 # Special Thanks to MovieLens!
-![movielens-logo](Images/movielens-2x.png)<br>
+![https://grouplens.org/datasets/movielens/](Images/movielens-2x.png)<br>
 For providing one of the best movie datasets out there in the internet!
 https://grouplens.org/datasets/movielens/
