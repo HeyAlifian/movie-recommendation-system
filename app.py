@@ -1,6 +1,5 @@
 import pandas as pd
 from Levenshtein import distance
-from random import randrange
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from colorama import Fore, init
