@@ -7,14 +7,12 @@ init(autoreset=True)
 
 dataset_path        = r"Datasets/latest-small/"
 movies              = pd.read_csv(dataset_path+r"movies.csv")
-# print(genres.head())
 
 movies['genres']    = movies['genres'].fillna('').apply(lambda x: x.replace('|', ' '))
 moviesTitle         = movies['title'].fillna('').to_list()
 
 tfidf               = TfidfVectorizer(stop_words='english')
 tfidf_matrix        = tfidf.fit_transform(movies['genres'])
-# print("TF-IDF matrix shape:", tfidf_matrix.shape)
 
 cosineSim           = cosine_similarity(tfidf_matrix, tfidf_matrix)
 indices             = pd.Series(movies.index, index=movies["title"]).drop_duplicates()
@@ -29,9 +27,6 @@ def recommend_me(title, cosineSim=cosineSim):
     movieIndices    = [i[0] for i in simScores]
 
     return movies['title'].iloc[movieIndices]
-
-# print("Movies similar to 'Justice League: The New Frontier (2008)':")
-# print(recommend_me('Justice League: The New Frontier (2008)'))
 
 while True:
     user_input          = input("Enter a movie: ").strip()
